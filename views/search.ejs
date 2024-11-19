@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+
+<h1>Resultados para "<%= query %>"</h1>
+
+<ul>
+  <% if (results.length > 0) { %>
+    <% results.forEach(result => { %>
+      <li>
+        <h2><%= result.title %></h2>
+        <% if (result.cover_image) { %>
+          <img src="<%= result.cover_image %>" alt="<%= result.title %>" width="150">
+        <% } %>
+        <p>Tipo: <%= result.type %></p>
+        <p>ID: <%= result.id %></p>
+      </li>
+    <% }) %>
+  <% } else { %>
+    <p>No se encontraron resultados para "<%= query %>".</p>
+  <% } %>
+</ul>
+
+<%- include('partials/footer') %>
