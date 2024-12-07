@@ -50,7 +50,7 @@ app.get("/", (req, res) => {
         // Convertir la respuesta en JSON
         const data = await response.json();
     
-        // Renderizar los resultados en la vista searchResults.ejs
+        // Renderizar los resultados en la vista search.ejs
         res.render('search', { results: data.results, query });
       } catch (error) {
         console.error('Error al realizar la búsqueda:', error.message);
