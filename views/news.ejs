@@ -1,0 +1,33 @@
+<%- include("partials/header.ejs") %>
+
+<main class="container py-5">
+  <h1 class="mb-4">Noticias</h1>
+
+  <div class="mb-5">
+    <% news.forEach(article => { %>
+      <h3><a href="/news/<%= article.id %>"><%= article.title %></a></h3>
+    <% }) %>
+  </div>
+
+  <h2 class="mb-3">Agregar noticia</h2>
+  <form method="post" action="/news">
+    <div class="mb-3">
+      <label class="form-label">Título</label>
+      <input type="text" name="title" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Imagen (URL)</label>
+      <input type="text" name="image" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Contenido</label>
+      <textarea name="content" class="form-control" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Publicar</button>
+  </form>
+</main>
+
+<%- include("partials/footer.ejs") %>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<%- include("partials/header.ejs") %>
+
+<main class="container py-5">
+  <h1 class="mb-4"><%= article.title %></h1>
+  <% if (article.image) { %>
+    <img src="<%= article.image %>" class="img-fluid mb-4" alt="<%= article.title %>">
+  <% } %>
+  <p><%= article.content %></p>
+  <a href="/news">Volver a noticias</a>
+</main>
+
+<%- include("partials/footer.ejs") %>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
