@@ -2,11 +2,7 @@
 
 <!-- Body Home Page -->
 
-<body>
-
-    <!-- Navigation Bar -->
-
-    <%- include ("partials/header.ejs") %>
+<%- include ("partials/header.ejs") %>
       
     <!-- Hero Section -->
 
@@ -18,7 +14,7 @@
           <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Encuentra, Comparte y Colecciona Vinilos Latinos Icónicos</h1>
           <p class="lead">Accede a una Colección Exclusiva de Vinilos Latinos: Descubre Clásicos, Rarezas y Música Inolvidable, Construye tu Propia Biblioteca Musical, Conecta con una Comunidad de Apasionados por los Vinilos, y Comparte tus Descubrimientos para Inspirar a Otros Melómanos en Todo el Mundo.</p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Registrate</button>
+            <a href="/register" class="btn btn-primary btn-lg px-4 me-md-2">Registrate</a>
             <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
           </div>
         </div>
@@ -28,71 +24,34 @@
 
     <div class="container px-4 py-5" id="custom-cards">
       <h2 class="pb-2 border-bottom">Ritmos y noticias</h2>
-  
-      <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-        <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/images/Fania\ Explosion.jpg');">
-            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Vinilos Latinos de Salsa Que Todo Coleccionista Debería Tener</h3>
-              <ul class="d-flex list-unstyled mt-auto">
-                <li class="me-auto">
-                  <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                </li>
-                <li class="d-flex align-items-center me-3">
-                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                  <small>Earth</small>
-                </li>
-                <li class="d-flex align-items-center">
-                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                  <small>3d</small>
-                </li>
-              </ul>
-            </div>
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+          <% news.forEach(article => { %>
+          <div class="col">
+            <a href="/news/<%= article.id %>" class="text-decoration-none">
+              <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('<%= article.image %>');">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                  <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"><%= article.title %></h3>
+                  <ul class="d-flex list-unstyled mt-auto">
+                    <li class="me-auto">
+                      <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                    </li>
+                    <li class="d-flex align-items-center me-3">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                      <small><%= article.location %></small>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                      <small><%= article.daysAgo %></small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </a>
           </div>
+          <% }) %>
         </div>
+        <a href="/news" class="btn btn-link">Ver todas las noticias</a>
   
-        <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/images/329582_1559623106.jpg');">
-            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Dónde Escuchar Rock en Español en Los Ángeles: Los Mejores Spots</h3>
-              <ul class="d-flex list-unstyled mt-auto">
-                <li class="me-auto">
-                  <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                </li>
-                <li class="d-flex align-items-center me-3">
-                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                  <small>Pakistan</small>
-                </li>
-                <li class="d-flex align-items-center">
-                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                  <small>4d</small>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/images/enjambre.jpg');">
-            <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Rock Mexicano Hoy: Las Bandas que Están Redefiniendo el Género</h3>
-              <ul class="d-flex list-unstyled mt-auto">
-                <li class="me-auto">
-                  <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                </li>
-                <li class="d-flex align-items-center me-3">
-                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                  <small>California</small>
-                </li>
-                <li class="d-flex align-items-center">
-                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                  <small>5d</small>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
   <!-- Features Icon -->
